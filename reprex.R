@@ -15,6 +15,12 @@ tbl_input$var_2
 # Input number of rows
 nrow(tbl_input)
 
+# Input queries: OK
+
+tbl_input |> dplyr::filter(var_2 == "FIL") |> dplyr::collect()
+
+tbl_input |> dplyr::count(var_1) |> dplyr::collect()
+
 # Write ------------------------------------------------------------------------------------------------------------
 
 stopifnot(!fs::is_dir(f_dataset_merged))
@@ -41,4 +47,5 @@ nrow(tbl_written)
 tbl_written |> dplyr::filter(var_2 == "FIL") |> dplyr::collect()
 
 tbl_written |> dplyr::count(var_1) |> dplyr::collect()
+
 
